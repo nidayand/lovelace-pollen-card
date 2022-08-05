@@ -1,5 +1,6 @@
 # pollen-card
 A Lovelace card to display the sensor data from the integration component.
+![Screenshot 2022-08-05 at 22 37 45](https://user-images.githubusercontent.com/2181965/183159066-2cef1a6e-e59b-4bb3-832b-7bff781b471c.png)
 
 ## Requirement
 - [Home Assistant Pollenprognos integration](https://github.com/JohNan/homeassistant-pollenprognos)
