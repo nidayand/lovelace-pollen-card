@@ -42,10 +42,10 @@ import {
   
           //Add to list of sensors to be displayed
           var attributeKeys = Object.keys(dict.allergen.attributes);
-          dict.day0 = { name: dict.allergenCapitalized, day: "Idag", state: dict.allergen.state, state_text: state_text[parseInt(dict.allergen.state)]};
-          dict.day1 = { name: dict.allergenCapitalized, day: attributeKeys[0], state: dict.allergen.attributes[attributeKeys[0]], state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[0]])]};
-          dict.day2 = { name: dict.allergenCapitalized, day: attributeKeys[1], state: dict.allergen.attributes[attributeKeys[1]], state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[1]])]};
-          dict.day3 = { name: dict.allergenCapitalized, day: attributeKeys[2], state: dict.allergen.attributes[attributeKeys[2]], state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[2]])]};
+          dict.day0 = { name: dict.allergenCapitalized, day: "Idag", state: parseInt(dict.allergen.state), state_text: state_text[parseInt(dict.allergen.state)]};
+          dict.day1 = { name: dict.allergenCapitalized, day: attributeKeys[0], state: parseInt(dict.allergen.attributes[attributeKeys[0]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[0]])]};
+          dict.day2 = { name: dict.allergenCapitalized, day: attributeKeys[1], state: parseInt(dict.allergen.attributes[attributeKeys[1]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[1]])]};
+          dict.day3 = { name: dict.allergenCapitalized, day: attributeKeys[2], state: parseInt(dict.allergen.attributes[attributeKeys[2]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[2]])]};
   
           if ((dict.day0.state + dict.day1.state + dict.day2.state + dict.day3.state) > 0 ){
               sensors.push(dict);
