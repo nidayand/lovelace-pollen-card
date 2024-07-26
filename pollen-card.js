@@ -43,11 +43,16 @@ class PollenCardv2 extends LitElement {
       //Add to list of sensors to be displayed
       var attributeKeys = Object.keys(dict.allergen.attributes);
       dict.day0 = { name: dict.allergenCapitalized, day: "Idag", state: parseInt(dict.allergen.state), state_text: state_text[parseInt(dict.allergen.state)] };
+      if (dict.day0.state_text == undefined) dict.day0.state_text=state_text[0];
       dict.day1 = { name: dict.allergenCapitalized, day: attributeKeys[0], state: parseInt(dict.allergen.attributes[attributeKeys[0]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[0]])] };
+      if (dict.day1.state_text == undefined) dict.day1.state_text=state_text[0];
       dict.day2 = { name: dict.allergenCapitalized, day: attributeKeys[1], state: parseInt(dict.allergen.attributes[attributeKeys[1]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[1]])] };
+      if (dict.day2.state_text == undefined) dict.day2.state_text=state_text[0];
       dict.day3 = { name: dict.allergenCapitalized, day: attributeKeys[2], state: parseInt(dict.allergen.attributes[attributeKeys[2]]), state_text: state_text[parseInt(dict.allergen.attributes[attributeKeys[2]])] };
+      if (dict.day3.state_text == undefined) dict.day3.state_text=state_text[0];
 
-      if (dict.day0.state>0 || dict.day1.state>0 || dict.day2.state>0 || dict.day3.state> 0) {
+
+      if (dict.day0.state > 0 || dict.day1.state > 0 || dict.day2.state > 0 || dict.day3.state > 0) {
         sensors.push(dict);
       }
     }
@@ -62,7 +67,7 @@ class PollenCardv2 extends LitElement {
 
     //Add to class
     this.sensors = sensors;
-    console.log(sensors);
+    //console.log(sensors);
   }
 
   render() {
@@ -81,10 +86,10 @@ class PollenCardv2 extends LitElement {
                   ${this.sensors.map(sensor => html`
                   <tr class="allergen" valign="top">
                   <td><img class="allergen" src="${this.images[sensor.allergenReplaced + '_' + sensor.day0.state + '_png']}"/>${sensor.allergenCapitalized}</td>
-                  <td><img src="${sensor.day0.state>-1? this.images[sensor.day0.state + '_png']:this.images['0_png']}"/></td>
-                  <td><img src="${sensor.day1.state>-1? this.images[sensor.day1.state + '_png']:this.images['0_png']}"/></td>
-                  <td><img src="${sensor.day2.state>-1? this.images[sensor.day2.state + '_png']:this.images['0_png']}"/></td>
-                  <td><img src="${sensor.day3.state>-1? this.images[sensor.day3.state + '_png']:this.images['0_png']}"/></td>
+                  <td><img src="${sensor.day0.state > -1 ? this.images[sensor.day0.state + '_png'] : this.images['0_png']}"/></td>
+                  <td><img src="${sensor.day1.state > -1 ? this.images[sensor.day1.state + '_png'] : this.images['0_png']}"/></td>
+                  <td><img src="${sensor.day2.state > -1 ? this.images[sensor.day2.state + '_png'] : this.images['0_png']}"/></td>
+                  <td><img src="${sensor.day3.state > -1 ? this.images[sensor.day3.state + '_png'] : this.images['0_png']}"/></td>
                   </tr>
                   ${this.config.show_text == true ? html`
                   <tr class="allergen" valign="top">
